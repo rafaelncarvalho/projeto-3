@@ -1,1 +1,1 @@
-este é o arquivo 3
+este é o arquivo 3. alterado para teste
