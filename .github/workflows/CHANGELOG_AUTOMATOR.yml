@@ -1,23 +1,15 @@
 name: Changelog
-
-on:
+on: 
   pull_request:
     types: [closed]
 
-  release:
-    types: [published]
-
-  issues:
-    types: [closed, edited]
-
 jobs:
-  generate_changelog:
+  update-changelog:
     runs-on: ubuntu-latest
-    name: Generate changelog for master branch
     steps:
-      - uses: actions/checkout@v1
-
-      - name: Generate changelog
-        uses: charmixer/auto-changelog-action@v1.1
-        with:
-          token: ${{ secrets.YOUR_GITHUB_TOKEN or GITHUB_TOKEN }}
+    - uses: actions/checkout@v2
+    
+    - name: Update changelog
+      uses: thomaseizinger/keep-a-changelog-new-release@v1
+      with:
+        version: 0.6.0 # You probably want to have this dynamic :)
